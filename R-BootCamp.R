@@ -49,3 +49,48 @@ limit <- 1/(1-0.5)
 limit-sum(G)
 G50 <- 0.5^(seq(0,50))
 limit-sum(G50)
+
+#9.1.5.0.1 Exercise
+#What would happen if instead of setting lowLight you replaced Light by saying Light <- Light[Light<50]? Why would that be the wrong thing to do in the above example?
+Light <- c(20,20,20,20,21,24,44,60,90,94,101)
+rmax <- c(1.73,1.65,2.02,1.89,2.61,1.36,2.37,2.08,2.69,2.32,3.67)
+lowLight <- Light[Light<50]
+lowLightrmax <- rmax[Light<50]
+lowLight
+   ##you are writing over your full and coplerte data set with only a subset of that data Light[Light<50]
+
+
+#9.1.5.0.2 Exercise
+#runif(n) is a function that generates a vector of n random, uniformly distributed numbers between 0 and 1. 
+#Create a vector of 20 numbers, then find the subset of those numbers that is less than the mean. More on runif and related functions soon.
+numbers<- runif(20)
+mnum <- mean(numbers)
+lessmean<- numbers[numbers<mnum]
+
+#9.1.5.0.3 Exercise
+#Find the positions of the elements that are less than the mean of the vector you just created (e.g. if your vector were (0.1 0.9 0.7 0.3) the answer would be (1 4)).
+position<-which(numbers<mnum)
+
+#9.1.5.0.4 Exercise
+#Specify two ways to take only the elements in the odd positions (first, third, …) of a vector of arbitrary length.
+#Option 1
+nn <- length(numbers) #find how many values are in your vector
+pos<- seq(1,n,2) #create sequence of odd positions in your vector
+result <- numbers[pos] #extract the values that are listedin your sequece
+
+#Option 2
+result <- numbers[seq(1,n,2)]
+result
+
+
+#9.2.1.0.1 Exercise
+#Use a command of the form X <- matrix(v,nrow=2,ncol=4) where v is a data vector, to create the following matrix X:
+X <- matrix(c(1,2,1,2,1,2,1,2),nrow=2,ncol=4)
+
+
+#9.2.1.0.2 Exercise
+#Use rnorm and matrix to create a 5×7 matrix of Gaussian random numbers with mean 1 and standard deviation 2.
+Y<- matrix(c(rnorm()), nrow=5,ncol=7)
+
+#9.2.2.0.1 Exercise
+#Verify that rbind(C,D) works, cbind(C,C) works, but cbind(C,D) doesn’t. Why not?
