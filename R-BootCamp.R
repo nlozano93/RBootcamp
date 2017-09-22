@@ -120,7 +120,34 @@ X <- read.csv("ChlorellaGrowth.csv",comment.char='#')
 #(This is one example of how R uses the fact that statistical analyses are stored as model objects. fit “knows” what kind of object it is (in this case an object of type lm), and so plot(fit) invokes a function that produces plots suitable for an lm object.) 
 source("Intro2.R")
 plot(fit)
-  #R produced a series of diagnostic plots exploring whether or not the fitted linear model is a suitable fit to the data. In each of the plots, the 3 most extreme points (the most likely candidates for “outliers”) have been identified according to their sequence in the data set.
+  #R produced a series of diagnostic plots showing residuals. This allows for extreme points (the most likely candidates for “outliers”) to be identified according to their sequence in the data set.
+
+#11.0.0.0.3 Exercise
+#Create a plot of growth rate versus light intensity with the x-axis running from 0 to 120, and the y-axis running from 1 to 4.
+attach(X)
+plot(rmax~light, xlim=c(0,120), ylim=c(1,4))
+
+#11.0.0.0.4 Exercise
+  #On different R script
+
+detach(X)
+
+#11.0.0.0.5 Exercise
+#Use ?par to read about other plot control parameters that can be set using par(). Then draw a 2×2set of plots, each showing the line y=5x+3
+#with x running from 3 to 8, but with 4 different line styles and 4 different line colors.
+?par
+X<-seq(0,10)
+Y<-(5*X)+3
+
+par(mfcol=c(2,2))
+plot(Y~X, lty=5, col="grey", xlim=c(3,8))
+lines(Y~X, lty=5, col="grey")
+plot(Y~X, lty=2, col="red",xlim=c(3,8))
+lines(Y~X, lty=2, col="red")
+plot(Y~X, lty=3, col="blue",xlim=c(3,8))
+lines(Y~X, lty=3, col="blue")
+plot(Y~X, lty=4, col="green",xlim=c(3,8))
+lines(Y~X, lty=4, col="green")
 
 
 
