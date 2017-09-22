@@ -139,6 +139,7 @@ detach(X)
 X<-seq(0,10)
 Y<-(5*X)+3
 
+
 par(mfcol=c(2,2))
 plot(Y~X, lty=5, col="grey", xlim=c(3,8))
 lines(Y~X, lty=5, col="grey")
@@ -148,6 +149,11 @@ plot(Y~X, lty=3, col="blue",xlim=c(3,8))
 lines(Y~X, lty=3, col="blue")
 plot(Y~X, lty=4, col="green",xlim=c(3,8))
 lines(Y~X, lty=4, col="green")
+
+#11.0.0.0.6 Exercise
+#Modify one of your scripts so that at the very end it saves the plot to disk. 
+?dev.print
+dev.copy(png,'myplot.png')
 
 
 
