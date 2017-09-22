@@ -1,6 +1,7 @@
 library (ape)
 library (geiger)
 library (ggplot2)
+setwd("~/Desktop/UCLA/Fall_2017/EEB_201/bootcamp")
 
 #9.1.0.0.1 Exercise
 #What do the %% and %/% operators do?
@@ -106,6 +107,20 @@ is.matrix(x)#yes it makes a matrix
 data.url <- "http://kingaa.github.io/R_Tutorial/hurricanes.csv"
 hurricanes <- read.csv(data.url,comment.char='#')
 
-
 #11.0.0.0.1 Exercise
 #Make a copy of Intro2.R under a new name, and modify the copy so that it does linear regression of algal growth rate on the natural log of light intensity, LogLight=log(Light), and plots the data appropriately. You should end up with a graph that resembles the following.
+
+source("ModifiedIntro.R")
+download.file(paste0(course.url,"Intro2.R"),destfile="Intro2.R",mode="w")
+download.file(paste0(course.url,"ChlorellaGrowth.csv"),destfile="ChlorellaGrowth.csv",mode="w")
+X <- read.csv("ChlorellaGrowth.csv",comment.char='#')
+
+#11.0.0.0.2 Exercise
+#Run Intro2.R, then enter the command plot(fit) in the console and follow the directions in the console. Figure out what just happened by entering ?plot.lm to bring up the help page for the function plot.lm() that carries out a plot() command for an object produced by lm(). 
+#(This is one example of how R uses the fact that statistical analyses are stored as model objects. fit “knows” what kind of object it is (in this case an object of type lm), and so plot(fit) invokes a function that produces plots suitable for an lm object.) 
+source("Intro2.R")
+plot(fit)
+  #R produced a series of diagnostic plots exploring whether or not the fitted linear model is a suitable fit to the data. In each of the plots, the 3 most extreme points (the most likely candidates for “outliers”) have been identified according to their sequence in the data set.
+
+
+
