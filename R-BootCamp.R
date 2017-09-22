@@ -82,15 +82,30 @@ result <- numbers[pos] #extract the values that are listedin your sequece
 result <- numbers[seq(1,n,2)]
 result
 
-
 #9.2.1.0.1 Exercise
 #Use a command of the form X <- matrix(v,nrow=2,ncol=4) where v is a data vector, to create the following matrix X:
 X <- matrix(c(1,2,1,2,1,2,1,2),nrow=2,ncol=4)
 
-
 #9.2.1.0.2 Exercise
 #Use rnorm and matrix to create a 5×7 matrix of Gaussian random numbers with mean 1 and standard deviation 2.
-Y<- matrix(c(rnorm()), nrow=5,ncol=7)
+Y<- matrix(c(rnorm(35,1,2)), nrow=5,ncol=7)
 
 #9.2.2.0.1 Exercise
 #Verify that rbind(C,D) works, cbind(C,C) works, but cbind(C,D) doesn’t. Why not?
+  #you cannot column bind becasue there are not = amounts of rows
+
+#9.3.0.0.1 Exercise
+#What happens when we set the dimension attribute on a vector? For example:
+x <- seq(1,27) #makes vector
+dim(x) <- c(3,9)#adds demesions
+is.array(x)#yes it creates an array
+is.matrix(x)#yes it makes a matrix
+
+#9.6.0.0.1 Exercise
+#Download the hurricanes.csv file. Examine the resulting data frame by printing it and using the str command. Note the class type of each variable.
+data.url <- "http://kingaa.github.io/R_Tutorial/hurricanes.csv"
+hurricanes <- read.csv(data.url,comment.char='#')
+
+
+#11.0.0.0.1 Exercise
+#Make a copy of Intro2.R under a new name, and modify the copy so that it does linear regression of algal growth rate on the natural log of light intensity, LogLight=log(Light), and plots the data appropriately. You should end up with a graph that resembles the following.
