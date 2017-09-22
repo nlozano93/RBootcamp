@@ -155,5 +155,52 @@ lines(Y~X, lty=4, col="green")
 ?dev.print
 dev.copy(png,'myplot.png')
 
+#12
+a <- 1.1
+b <- 0.001
+T <- seq(from=1,to=200,by=1)
+N <- numeric(length(T))
+n <- 2
+for (t in T) {
+  n <- a*n/(1+b*n)
+  N[t] <- n}
+plot(T,N)
 
+#12.1.0.0.2 Exercise
+#Check that this works with different vectors T. What happens when T has length 1? What happens when T has length 0? Why? 
+  #length of 1 there is only 1 data point on the graph -> this is in the sequence
+  #length of 0 it wont run -> this is not in the sequence
+
+#12.2.0.0.1 Exercise
+#Verify that the above works as intended. How many iterations are needed?
+phi <- 20
+conv <- FALSE
+count<-0
+while (!conv) {
+  count<- count+1
+  phi.new <- 1+1/phi
+  conv <- phi==phi.new
+  phi <- phi.new
+}
+count #it took 40 itterations
+
+#12.2.0.0.2 Exercise
+#Recompute the trajectory of the Beverton-Holt model using a while loop. Verify that your answer is exactly equivalent to the one above.
+a <- 1.1
+b <- 0.001
+T <- seq(from=1,to=200,by=1)
+N <- numeric(length(T))
+n <- 2
+for (t in T) {
+  n <- a*n/(1+b*n)
+  N[t] <- n
+}
+plot(T,N)
+
+
+while(t <= 200)
+{n <- a*n/(1+b*n)
+N[t] <- n
+t <- t+1}
+plot(T,N)
 
